@@ -6,6 +6,11 @@ COPY /docker-nodered/flows.json /data/flows.json
 COPY --chown=node-red:node-red /ml5_classification/index.html /data/uibuilder/ml5/src/index.html
 COPY --chown=node-red:node-red /ml5_classification/index.js /data/uibuilder/ml5/src/index.js
 COPY --chown=node-red:node-red /ml5_classification/sketch.js /data/uibuilder/ml5/src/sketch.js
+COPY --chown=node-red:node-red /ml5_train_classification/index.html /data/uibuilder/ml5_train/src/index.html
+COPY --chown=node-red:node-red /ml5_train_classification/index.js /data/uibuilder/ml5_train/src/index.js
+COPY --chown=node-red:node-red /ml5_posenet/index.html /data/uibuilder/pose/src/index.html
+COPY --chown=node-red:node-red /ml5_posenet/index.js /data/uibuilder/pose/src/index.js
+COPY --chown=node-red:node-red /ml5_posenet/sketch.js /data/uibuilder/pose/src/sketch.js
 COPY /docker-nodered/cert.pem /data/cert.pem
 COPY /docker-nodered/key.pem /data/key.pem
 
