@@ -1,4 +1,13 @@
+FROM certbot/certbot AS build-env
 FROM nodered/node-red
+COPY --from=build-env /usr/local/ /usr/local/
+RUN pip3 install certbot
+USER root
+RUN mkdir -m 775 /var/log/letsencrypt
+RUN mkdir -m 775 /etc/letsencrypt
+RUN mkdir -m 775 /var/lib/letsencrypt
+RUN adduser node-red root
+USER node-red
 COPY /docker-nodered/package.json .
 RUN npm install --only=production
 COPY /docker-nodered/settings.js /data/settings.js
