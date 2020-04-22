@@ -6,6 +6,8 @@ USER root
 RUN mkdir -m 775 /var/log/letsencrypt
 RUN mkdir -m 775 /etc/letsencrypt
 RUN mkdir -m 775 /var/lib/letsencrypt
+RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/python3.8
+RUN setcap 'cap_net_bind_service=+ep' /usr/bin/python3.8
 RUN adduser node-red root
 USER node-red
 COPY /docker-nodered/package.json .
@@ -22,6 +24,7 @@ COPY --chown=node-red:node-red /ml5_train_classification/shutter.mp3 /data/uibui
 COPY --chown=node-red:node-red /ml5_posenet/index.html /data/uibuilder/pose/src/index.html
 COPY --chown=node-red:node-red /ml5_posenet/index.js /data/uibuilder/pose/src/index.js
 COPY --chown=node-red:node-red /ml5_posenet/sketch.js /data/uibuilder/pose/src/sketch.js
+COPY --chown=node-red:node-red /docker-nodered/start.sh .
 COPY /docker-nodered/cert.pem /data/cert.pem
 COPY /docker-nodered/key.pem /data/key.pem
 
