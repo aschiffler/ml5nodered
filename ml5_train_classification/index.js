@@ -66,7 +66,7 @@ function setupButtons() {
   buttonA = select('#ButtonA');
   buttonA.mousePressed(function() {
     shutterSound.play();
-    classifier.addImage('Class 2');
+    classifier.addImage('Class 1');
     select('#amountOfAImages').html(++imagesOfA);
   });
   
@@ -75,7 +75,7 @@ function setupButtons() {
   buttonB = select('#ButtonB');
   buttonB.mousePressed(function() {
     shutterSound.play();
-    classifier.addImage('Class 1');
+    classifier.addImage('Class 2');
     select('#amountOfBImages').html(++imagesOfB);
   });
 
