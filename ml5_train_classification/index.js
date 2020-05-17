@@ -22,11 +22,12 @@ function setup() {
   mycanvas.parent("canvasContainer");
   // Create a video element
   if (isMobileDevice()){
-    video = createCapture({audio: false,video: {facingMode: {exact: "environment"}}});
+    video = createCapture({audio: false,video: {width: 300, height: 300, facingMode: {exact: "environment"}}});
   }else{
     video = createCapture(VIDEO);
   }
   video.size(300, 300);
+  video.elt.setAttribute('playsinline', '');
   video.position(windowWidth*0.05,0);
   rectMode(CENTER);
   //video.hide();
@@ -56,7 +57,7 @@ function modelReady() {
 
 // Classify the current frame.
 function classify() {
-  classifier.classify(gotResults);
+  classifier.classify(video,gotResults);
 }
 
 // A util function to create UI buttons
@@ -66,7 +67,7 @@ function setupButtons() {
   buttonA = select('#ButtonA');
   buttonA.mousePressed(function() {
     shutterSound.play();
-    classifier.addImage('Class 1');
+    classifier.addImage(video,'Class 1');
     select('#amountOfAImages').html(++imagesOfA);
   });
   
@@ -75,7 +76,7 @@ function setupButtons() {
   buttonB = select('#ButtonB');
   buttonB.mousePressed(function() {
     shutterSound.play();
-    classifier.addImage('Class 2');
+    classifier.addImage(video,'Class 2');
     select('#amountOfBImages').html(++imagesOfB);
   });
 
@@ -139,7 +140,7 @@ function gotResults(err, result) {
     uibuilder.send( { 'topic': 'send-from-web-client', 'payload': result[0] } )
   }
   select('#result').html(result[0].label);
-  select('#confidence').html(nf(result[0].confidence,0,2));
+  select('#confidence').html(nf(result[0].confidence,0,4));
 
   classificationResult = result[0].label;
   confidence = result[0].confidence;

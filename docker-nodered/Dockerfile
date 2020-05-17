@@ -1,8 +1,8 @@
 FROM certbot/certbot AS build-env
 FROM nodered/node-red
 COPY --from=build-env /usr/local/ /usr/local/
-RUN pip3 install certbot
 USER root
+RUN pip3 install certbot
 RUN mkdir -m 775 /var/log/letsencrypt
 RUN mkdir -m 775 /etc/letsencrypt
 RUN mkdir -m 775 /var/lib/letsencrypt
