@@ -6,4 +6,3 @@ services:
     image: rediscommander/redis-commander:latest
   build:       
       context: https://github.com/aschiffler/ml5nodered.git
-      dockerfile: Dockerfile
