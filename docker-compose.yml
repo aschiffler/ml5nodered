@@ -1,11 +1,8 @@
 version: '3'
 services:
   fhwsnodered:
-    container_name: fhwsnodered 
-    hostname: fhwsnodered
     build:       
       context: https://github.com/aschiffler/ml5nodered.git
-    image: fhwsnodered:latest
     ports:
       - "1880:1880"
     #----- optional if certificate needed
