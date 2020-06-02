@@ -1,8 +1,9 @@
 version: '3'
 services:
-  fhwsnodered:
+  ml5nodered:
     build:       
       context: https://github.com/aschiffler/ml5nodered.git
+    image: ml5nodered
     ports:
       - "1880:1880"
     #----- optional if certificate needed
