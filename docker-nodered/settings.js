@@ -77,7 +77,7 @@ module.exports = {
     // Note: once you set this property, do not change it - doing so will prevent
     // node-red from being able to decrypt your existing credentials and they will be
     // lost.
-    credentialSecret: process.env.SECRET,
+    credentialSecret: process.env.SECRET || "$2a$08$pMXw7YEJ2.rGCvpQ6Tzc8.2Losc2OwPK0ajvGJHMuCctWq2pzkQ.m",
 
     // By default, all user data is stored in a directory called `.node-red` under
     // the user's home directory. To use a different location, the following
@@ -123,8 +123,8 @@ module.exports = {
     adminAuth: {
         type: "credentials",
         users: [{
-            username: "user",
-            password: process.env.SECRET,
+            username: process.env.USERNAME || "user",
+            password: process.env.SECRET || "$2a$08$pMXw7YEJ2.rGCvpQ6Tzc8.2Losc2OwPK0ajvGJHMuCctWq2pzkQ.m",
             permissions: "*"
         }]
     },
