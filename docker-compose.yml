@@ -15,7 +15,7 @@ services:
     #  - LETSENCRYPTDOMAIN=example.com
     #  - EMAIL=mail@example.com
     # entrypoint: /usr/src/node-red/start.sh
-    environment:
+    # environment:
     # default username = user
     #  - USERNAME=my_username
     # hashed secret see here https://nodered.org/docs/user-guide/runtime/securing-node-red
