@@ -14,7 +14,6 @@ COPY --chown=node-red:node-red /ml5_train_classification/shutter.mp3 /data/uibui
 COPY --chown=node-red:node-red /ml5_posenet/index.html /data/uibuilder/pose/src/index.html
 COPY --chown=node-red:node-red /ml5_posenet/index.js /data/uibuilder/pose/src/index.js
 COPY --chown=node-red:node-red /ml5_posenet/sketch.js /data/uibuilder/pose/src/sketch.js
-COPY --chown=node-red:node-red /docker-nodered/start.sh .
 COPY /docker-nodered/cert.pem /data/cert.pem
 COPY /docker-nodered/key.pem /data/key.pem
 

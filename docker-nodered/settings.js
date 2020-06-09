@@ -20,7 +20,7 @@ var fs = require("fs");
 
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
-    uiPort: process.env.NODEREDPORT || 1880,
+    uiPort: process.env.PORT || 1880,
 
     // By default, the Node-RED UI accepts connections on all IPv4 interfaces.
     // To listen on all IPv6 addresses, set uiHost to "::",
@@ -149,7 +149,7 @@ module.exports = {
 
     // The following property can be used to cause insecure HTTP connections to
     // be redirected to HTTPS.
-    requireHttps: true,
+    requireHttps: process.env.REQUIRESSL || false,
 
     // The following property can be used to disable the editor. The admin API
     // is not affected by this option. To disable both the editor and the admin
