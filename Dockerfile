@@ -1,5 +1,4 @@
 FROM nodered/node-red
-RUN adduser node-red root
 USER node-red
 COPY --chown=node-red:node-red /docker-nodered/package.json .
 RUN npm install --only=production
