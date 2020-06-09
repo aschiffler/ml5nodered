@@ -1,0 +1,19 @@
+version: '3'
+services:
+  ml5nodered:
+    build: https://github.com/aschiffler/ml5nodered.git
+    ports:
+      - "1880:1880"
+    #----- optional if certificate needed
+    #  - "80:80"
+    # environment:
+    #  - USERNAME=me
+    #  - LETSENCRYPTDOMAIN=example.com
+    #  - EMAIL=mail@example.com
+    # entrypoint: /usr/src/node-red/start.sh
+    # environment:
+    # default username = user
+    #  - USERNAME=my_username
+    # hashed secret see here https://nodered.org/docs/user-guide/runtime/securing-node-red
+    # default hash $2a$08$pMXw7YEJ2.rGCvpQ6Tzc8.2Losc2OwPK0ajvGJHMuCctWq2pzkQ.m (this is a 'a')
+    #  - SECRET=myhashed_secret
