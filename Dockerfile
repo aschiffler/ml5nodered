@@ -1,13 +1,4 @@
-FROM certbot/certbot AS build-env
 FROM nodered/node-red
-COPY --from=build-env /usr/local/ /usr/local/
-USER root
-RUN pip3 install certbot
-RUN mkdir -m 775 /var/log/letsencrypt
-RUN mkdir -m 775 /etc/letsencrypt
-RUN mkdir -m 775 /var/lib/letsencrypt
-RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/python3.8
-RUN setcap 'cap_net_bind_service=+ep' /usr/bin/python3.8
 RUN adduser node-red root
 USER node-red
 COPY --chown=node-red:node-red /docker-nodered/package.json .
