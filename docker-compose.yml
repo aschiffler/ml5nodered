@@ -1,8 +1,8 @@
-version: '3'
+version: '3.9'
 services:
   ml5nodered:
-    image: ml5nodered
-      build: https://github.com/aschiffler/ml5nodered.git
+    build: https://github.com/aschiffler/ml5nodered.git
+    image: ml5nodered:latest
     ports:
       - "1880:1880"
     #----- optional if certificate needed

@@ -1,7 +1,7 @@
 FROM nodered/node-red
 USER node-red
 COPY --chown=node-red:node-red /docker-nodered/package.json .
-RUN npm install --only=production
+RUN npm install
 COPY --chown=node-red:node-red /docker-nodered/settings.js /data/settings.js
 COPY --chown=node-red:node-red /docker-nodered/flows.json /data/flows.json
 COPY --chown=node-red:node-red /ml5_classification/index.html /data/uibuilder/ml5/src/index.html
