@@ -1,7 +1,10 @@
 version: '3'
 services:
   ml5nodered:
+    image: ml5nodered
     build: https://github.com/aschiffler/ml5nodered.git
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "1880:1880"
     #----- optional if certificate needed
